@@ -32,11 +32,15 @@ yerr=[1.0,0.707107,0.229416,0.092057,0.059028,0.043561,0.036761,0.031814,0.02853
 # **********************************
 popt, pcov = curve_fit(F, xdata, ydata , sigma=yerr )
 popt
-plt.plot(xdata, F(xdata,*popt), 'r-', 
+xpints= np.linspace(min(xdata),max(xdata), 10000)
+plt.plot(xpints, F(xpints,*(popt)), 'r-', 
          label='Fit details:\n a=%5.5f$\pm$%.5e\n b=%5.5f$\pm$%.5e\n c=%5.5f$\pm$%.5e' %(popt[0],pcov[0][0],popt[1],pcov[0][1],popt[2],pcov[0][2]))
 plt.errorbar(xdata, ydata, yerr=yerr,fmt='.k', color='black',
              ecolor='lightgray', elinewidth=3, capsize=3)
+#plt.plot(xpints, F(xpints,*(popt-pcov[0])), 'b-', 
+     #    label='Fit details:\n a=%5.5f$\pm$%.5e\n b=%5.5f$\pm$%.5e\n c=%5.5f$\pm$%.5e' %(popt[0],pcov[0][0],popt[1],pcov[0][1],popt[2],pcov[0][2]))
 plt.title(r'$y =0.4 * (a+1) *(b-x) - 0.434294 * 1.E(0.4 * (b-x) ) + c$', fontdict=font)
 plt.legend(loc='best')
 plt.savefig('Fit.pdf', format='pdf', dpi=1000)
+plt.savefig('Fit.png', format='png', dpi=1000)
 plt.show()
