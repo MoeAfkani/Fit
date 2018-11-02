@@ -12,3 +12,5 @@ Fit.py must be executable
 ```
 chmod +x Fit.py
 ```
+
+[For more about Fitting method](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html)
