@@ -8,4 +8,4 @@ Fit a function to a data set
 
 # Tip
 
-Fit.py must be excutable
+Fit.py must be executable
